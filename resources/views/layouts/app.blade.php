@@ -13,7 +13,7 @@
             <a href="{{ route('home') }}" class="navbar-brand">
                 <img src="{{ asset('images/logo_100x69.png') }}"
                      alt="{{ config('app.name') }}"
-                     style="height: 28px;"/>
+                     style="height: 1.75rem;"/>
             </a>
 
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
