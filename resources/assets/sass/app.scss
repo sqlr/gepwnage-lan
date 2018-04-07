@@ -6,14 +6,19 @@
 
 // Extend flag icon classes
 .flag-icon-en {
-  @extend .flag-icon-gb;
+    @extend .flag-icon-gb;
 }
 
 // Styles
 body {
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 .navbar-primary {
-  background-color: $gepwnage;
+    background-color: $gepwnage;
+}
+
+// Splash page
+.jumbotron-home {
+    background: url('../images/header.jpg') top center;
 }

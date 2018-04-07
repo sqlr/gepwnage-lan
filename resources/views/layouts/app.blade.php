@@ -22,8 +22,16 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-                    <li><a href="{{ route('home') }}" class="nav-link text-light">Home</a></li>
-                    <li><a href="{{ route('home') }}" class="nav-link text-light">Sign up</a></li>
+                    <li>
+                        <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
+                            Sign up
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
 
@@ -65,6 +73,10 @@
             </div>
         </div>
     </nav>
+
+    <header>
+        @yield('header')
+    </header>
 
     <main class="py-4">
         <div class="container">
