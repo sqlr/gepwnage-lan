@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import "variables";
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome.scss';
+@import '~flag-icon-css/sass/flag-icon.scss';
+
+// Extend flag icon classes
+.flag-icon-en {
+  @extend .flag-icon-gb;
+}
+
+// Styles
+body {
+  overflow-y: scroll;
+}
+
+.navbar-primary {
+  background-color: $primary;
+}
+
+.navbar-secondary {
+  background-color: $secondary;
+}
