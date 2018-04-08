@@ -30,8 +30,9 @@
                                 </button>
                             </h5>
                         </div>
-
-                        <div id="registration-gewis" class="collapse" data-parent="#registration-accordion">
+                        <div id="registration-gewis"
+                             data-parent="#registration-accordion"
+                             class="collapse {{ old('gewis_id') !== null ? 'show' : '' }}">
                             <div class="card-body">
                                 @include('registration.form-gewis')
                             </div>
@@ -46,7 +47,9 @@
                                 </button>
                             </h5>
                         </div>
-                        <div id="registration-external" class="collapse" data-parent="#registration-accordion">
+                        <div id="registration-external"
+                             data-parent="#registration-accordion"
+                             class="collapse {{ old('email') !== null ? 'show' : '' }}">
                             <div class="card-body">
                                 @include('registration.form-external')
                             </div>

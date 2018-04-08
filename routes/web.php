@@ -24,6 +24,8 @@ $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 //$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 //$this->post('register', 'Auth\RegisterController@register');
 $this->get('register', 'RegistrationController@index')->name('register');
+$this->post('register/gewis', 'RegistrationController@registerByGEWISId')->name('register.gewis');
+$this->post('register/external', 'RegistrationController@registerByEmail')->name('register.external');
 
 /*
  * Password Reset Routes...

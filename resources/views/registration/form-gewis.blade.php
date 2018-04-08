@@ -1,4 +1,5 @@
-<form action="{{ route('register') }}">
+<form action="{{ route('register.gewis') }}" method="post">
+    @csrf
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>GEWIS Membership Number</label>
