@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container text-muted">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5 my-3">
             <h4>Organisation / Fraternity</h4>
             <img src="{{ asset('images/logo_100x69.png') }}" class="pull-left m-1 mr-3" style="height: 2.3rem;"/>
             <p>
                 Dispuut
                 <a href="https://gepwnage.nl/" target="_blank"
-                   class="text-gepwnage-secondary font-weight-bold">GEPWNAGE</a><br/>
-                <a href="mailto:lan@gepwnage.nl" class="text-light">lan@gepwnage.nl</a>
+                   class="text-primary font-weight-bold">GEPWNAGE</a><br/>
+                <a href="mailto:lan@gepwnage.nl" class="text-muted">lan@gepwnage.nl</a>
             </p>
             <div class="clearfix my-4"></div>
             <h4>Study Association</h4>
@@ -20,41 +20,48 @@
                 5612 AZ, Eindhoven
             </p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 my-3">
             <h4>Contact Us</h4>
             <a href="http://gepwnage.nl/" target="_blank"
-               class="text-light">
+               class="text-muted">
                 <i class="fa fa-fw fa-link"></i> GEPWNAGE.nl
             </a>
             <br/>
             <a href="mailto:lan@gepwnage.nl"
-               class="text-light">
+               class="text-muted">
                 <i class="fa fa-fw fa-envelope"></i> E-mail
             </a>
             <br/>
             <a href="https://www.linkedin.com/company-beta/10656960/" target="_blank"
-               class="text-light">
+               class="text-muted">
                 <i class="fa fa-fw fa-linkedin"></i> LinkedIn
             </a>
             <br/>
             <a href="https://www.facebook.com/GEPWNAGE/" target="_blank"
-               class="text-light">
+               class="text-muted">
                 <i class="fa fa-fw fa-facebook"></i> Facebook
             </a>
             <br/>
             <a href="https://steamcommunity.com/groups/gepwnage" target="_blank"
-               class="text-light">
+               class="text-muted">
                 <i class="fa fa-fw fa-steam"></i> Steam
             </a>
             <br/>
             <a href="irc://gewis.nl/gepwnage"
-               class="text-light">
+               class="text-muted">
                 <i class="fa fa-fw fa-terminal"></i> IRC
             </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 my-3">
             <h4>Sponsored by</h4>
-            {{-- TODO Add sponsors here --}}
+            <div class="carousel slide" data-interval="3000" data-ride="carousel">
+                <div class="carousel-inner">
+                    <a href="mailto:lan@gepwnage.nl" class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('images/yourlogohere.jpg') }}"/>
+                    </a>
+                    {{-- TODO Add sponsors here --}}
+                </div>
+            </div>
         </div>
     </div>
 </div>
