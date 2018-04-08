@@ -23,12 +23,20 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
+                        <a href="{{ route('home') }}"
+                           class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('register') }}" class="nav-link {{ request()->is('register') ? 'active' : '' }}">
+                        <a href="{{ route('participants') }}"
+                           class="nav-link {{ request()->is('participants') ? 'active' : '' }}">
+                            Participants
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}"
+                           class="nav-link {{ request()->is('register') ? 'active' : '' }}">
                             Sign up
                         </a>
                     </li>

@@ -38,4 +38,5 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 /*
  * Public Information
  */
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'PublicController@index')->name('home');
+Route::get('participants', 'PublicController@participants')->name('participants');
