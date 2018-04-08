@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,600");
 @import "variables";
 @import '~bootstrap/scss/bootstrap';
 @import '~font-awesome/scss/font-awesome.scss';
@@ -21,4 +21,5 @@ body {
 // Splash page
 .jumbotron-home {
     background: url('../images/header.jpg') top center;
+    background-size: cover;
 }

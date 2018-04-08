@@ -13,7 +13,7 @@
             <a href="{{ route('home') }}" class="navbar-brand">
                 <img src="{{ asset('images/logo_100x69.png') }}"
                      alt="{{ config('app.name') }}"
-                     style="height: 1.75rem;"/>
+                     style="height: 30px;"/>
             </a>
 
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
+                        <a href="{{ route('register') }}" class="nav-link {{ request()->is('register') ? 'active' : '' }}">
                             Sign up
                         </a>
                     </li>

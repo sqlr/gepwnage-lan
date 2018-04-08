@@ -32,6 +32,11 @@
                 <i class="fa fa-fw fa-envelope"></i> E-mail
             </a>
             <br/>
+            <a href="https://www.linkedin.com/company-beta/10656960/" target="_blank"
+               class="text-light">
+                <i class="fa fa-fw fa-linkedin"></i> LinkedIn
+            </a>
+            <br/>
             <a href="https://www.facebook.com/GEPWNAGE/" target="_blank"
                class="text-light">
                 <i class="fa fa-fw fa-facebook"></i> Facebook
