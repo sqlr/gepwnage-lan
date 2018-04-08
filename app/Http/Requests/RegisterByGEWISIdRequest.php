@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests;
 
-use Sqlr\GEWIS\GEWIS;
-use Sqlr\GEWIS\Model\Member;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
+use Sqlr\GEWIS\GEWIS;
+use Sqlr\GEWIS\Model\Member;
 
 /**
  * Class RegisterByGEWISIdRequest
@@ -45,6 +45,18 @@ class RegisterByGEWISIdRequest extends FormRequest
                 'date',
                 'before_or_equal:16 years ago',
                 'matches_gewis_member:gewis_id',
+            ],
+            'system' => [
+                'required',
+                Rule::in(['desktop', 'laptop']),
+            ],
+            'comment' => [
+                'nullable',
+                'string',
+            ],
+            'agree_costs' => [
+                'required',
+                'accepted',
             ],
         ];
     }

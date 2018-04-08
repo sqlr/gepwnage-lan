@@ -42,6 +42,22 @@ class RegisterExternalRequest extends FormRequest
                 'email',
                 Rule::unique('users', 'email'),
             ],
+            'system' => [
+                'required',
+                Rule::in(['desktop', 'laptop']),
+            ],
+            'comment' => [
+                'nullable',
+                'string',
+            ],
+            'agree_costs' => [
+                'required',
+                'accepted',
+            ],
+            'agree_priority' => [
+                'required',
+                'accepted',
+            ],
         ];
     }
 }

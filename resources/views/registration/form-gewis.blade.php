@@ -36,22 +36,27 @@
     <br/>
     <div class="form-row">
         <fieldset class="form-check col-md-4">
-            <legend class="col-form-label pt-0">I think I will bring my</legend>
-            <div class="col-sm-10">
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" name="system" id="radio-desktop" value="desktop"
-                           {{ old('system', 'desktop') === 'desktop' ? 'checked' : '' }}>
-                    <label class="form-check-label" for="radio-desktop">
-                        Desktop
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" name="system" id="radio-laptop" value="laptop"
-                            {{ old('system') === 'laptop' ? 'checked' : '' }}>
-                    <label class="form-check-label" for="radio-laptop">
-                        Laptop
-                    </label>
-                </div>
+            <label>I think I will bring my</label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" name="system" value="desktop"
+                           class="form-check-input {{ $errors->has('system') ? 'is-invalid' : '' }}"
+                            {{ old('system', 'desktop') === 'desktop' ? 'checked' : '' }}/>
+                    Desktop
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" name="system" value="laptop"
+                           class="form-check-input {{ $errors->has('system') ? 'is-invalid' : '' }}"
+                            {{ old('system') === 'laptop' ? 'checked' : '' }}/>
+                    Laptop
+                    @if ($errors->has('system'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('system') }}</strong>
+                        </div>
+                    @endif
+                </label>
             </div>
         </fieldset>
         <div class="form-group col-md-8">
@@ -71,9 +76,16 @@
     <br/>
     <div class="form-row justify-content-center">
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="check-costs" required>
-            <label class="form-check-label" for="check-costs">
+            <label class="form-check-label">
+                <input type="checkbox" name="agree_costs" value="1"
+                       class="form-check-input {{ $errors->has('agree_costs') ? 'is-invalid' : '' }}"
+                       required/>
                 I agree to the costs of signing up for this event.
+                @if ($errors->has('agree_costs'))
+                    <div class="invalid-feedback">
+                        <strong>{{ $errors->first('agree_costs') }}</strong>
+                    </div>
+                @endif
             </label>
         </div>
     </div>
@@ -81,5 +93,4 @@
     <div class="form-row justify-content-center">
         <button type="submit" class="btn btn-outline-gepwnage">Register</button>
     </div>
-    <br/>
 </form>
