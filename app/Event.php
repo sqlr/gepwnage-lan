@@ -26,5 +26,17 @@ class Event extends Model
      */
     protected $fillable = [
         'name',
+        'start',
+        'end',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'start',
+        'end',
     ];
 }
