@@ -29,30 +29,45 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('participants') }}"
-                           class="nav-link {{ request()->is('participants') ? 'active' : '' }}">
-                            Participants
-                        </a>
-                    </li>
-                    <li>
                         <a href="{{ route('register') }}"
                            class="nav-link {{ request()->is('register') ? 'active' : '' }}">
-                            Sign up
+                            Register
                         </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div role="button"
+                             class="nav-link dropdown-toggle"
+                             style="cursor: pointer;"
+                             data-toggle="dropdown">
+                            Information
+                            <span class="caret"></span>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ route('information.location') }}">
+                                Location
+                            </a>
+                            <a class="dropdown-item" href="{{ route('information.pricing') }}">
+                                Pricing
+                            </a>
+                            <a class="dropdown-item" href="{{ route('information.schedule') }}">
+                                Schedule
+                            </a>
+                        </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
 
                     @auth
                         <li class="nav-item dropdown">
-                            <div role="button" id="navbarDropdown"
-                                 class="nav-link text-light dropdown-toggle" style="cursor: pointer;"
+                            <div role="button"
+                                 class="nav-link dropdown-toggle"
+                                 style="cursor: pointer;"
                                  data-toggle="dropdown">
                                 {{ auth()->user()->name }}
                                 <span class="caret"></span>
                             </div>
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu">
                                 {{--<a class="dropdown-item" href="{{ route('home') }}">--}}
                                 {{--My Ticket--}}
                                 {{--</a>--}}
@@ -73,7 +88,7 @@
                             </div>
                         </li>
                     @else
-                        <li><a href="{{ route('login') }}" class="nav-link text-light">Login</a></li>
+                        <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                     @endauth
 
                     {{--@include('layouts.components.locale')--}}
