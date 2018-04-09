@@ -13,6 +13,8 @@ $gewis: #d40000;
 $gepwnage: #013370;
 $gepwnage-secondary: #ffff00;
 
+$primary: $gepwnage;
+
 $theme-colors: () !default;
 $theme-colors: map-merge((
         "gewis": $gewis,

@@ -39,4 +39,8 @@ return [
         'key' => ENV('GEWIS_KEY'),
     ],
 
+    'google' => [
+        'key' => ENV('GOOGLE_KEY'),
+    ],
+
 ];

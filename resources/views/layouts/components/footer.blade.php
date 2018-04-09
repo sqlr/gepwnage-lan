@@ -6,7 +6,7 @@
             <p>
                 Dispuut
                 <a href="https://gepwnage.nl/" target="_blank"
-                   class="text-primary font-weight-bold">GEPWNAGE</a><br/>
+                   class="font-weight-bold" style="color: #1e70bf;">GEPWNAGE</a><br/>
                 <a href="mailto:lan@gepwnage.nl" class="text-muted">lan@gepwnage.nl</a>
             </p>
             <div class="clearfix my-4"></div>

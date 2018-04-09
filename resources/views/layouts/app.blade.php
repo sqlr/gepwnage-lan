@@ -11,9 +11,7 @@
     <nav class="navbar navbar-dark navbar-expand-md navbar-primary">
         <div class="container">
             <a href="{{ route('home') }}" class="navbar-brand">
-                <img src="{{ asset('images/logo_100x69.png') }}"
-                     alt="{{ config('app.name') }}"
-                     style="height: 30px;"/>
+                <img src="{{ asset('images/logo_30x21.png') }}" alt="{{ config('app.name') }}"/>
             </a>
 
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
@@ -28,29 +26,30 @@
                             Home
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('register') }}"
-                           class="nav-link {{ request()->is('register') ? 'active' : '' }}">
-                            Register
-                        </a>
-                    </li>
                     <li class="nav-item dropdown">
                         <div role="button"
-                             class="nav-link dropdown-toggle"
+                             class="nav-link dropdown-toggle {{ request()->is('information/*') ? 'active' : '' }}"
                              style="cursor: pointer;"
                              data-toggle="dropdown">
                             Information
                             <span class="caret"></span>
                         </div>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('information.location') }}">
-                                Location
+                            <a href="{{ route('information.location') }}"
+                               class="dropdown-item {{ request()->is('information/location') ? 'active' : '' }}">
+                                Location &amp; Route
                             </a>
-                            <a class="dropdown-item" href="{{ route('information.pricing') }}">
+                            <a href="{{ route('information.pricing') }}"
+                               class="dropdown-item {{ request()->is('information/pricing') ? 'active' : '' }}">
                                 Pricing
                             </a>
-                            <a class="dropdown-item" href="{{ route('information.schedule') }}">
+                            <a href="{{ route('information.schedule') }}"
+                               class="dropdown-item {{ request()->is('information/schedule') ? 'active' : '' }}">
                                 Schedule
+                            </a>
+                            <a href="{{ route('information.visitors') }}"
+                               class="dropdown-item {{ request()->is('information/visitors') ? 'active' : '' }}">
+                                Visitors
                             </a>
                         </div>
                     </li>
@@ -88,7 +87,15 @@
                             </div>
                         </li>
                     @else
-                        <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                        <li class="px-md-3">
+                            <a href="{{ route('register') }}"
+                               class="nav-link text-gepwnage-secondary {{ request()->is('register') ? 'active' : '' }}">
+                                Register
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('login') }}" class="nav-link">Login</a>
+                        </li>
                     @endauth
 
                     {{--@include('layouts.components.locale')--}}
