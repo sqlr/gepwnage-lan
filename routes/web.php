@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,44 +16,55 @@
 /*
  * Authentication Routes...
  */
-$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('login', 'Auth\LoginController@login');
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::namespace('Auth')
+    ->group(function () {
+        Route::get('login', 'LoginController@showLoginForm')->name('login');
+        Route::post('login', 'LoginController@login');
+        Route::post('logout', 'LoginController@logout')->name('logout');
+
+        Route::prefix('password')
+            ->name('password.')
+            ->group(function () {
+                Route::get('reset', 'ForgotPasswordController@showLinkRequestForm')->name('request');
+                Route::post('email', 'ForgotPasswordController@sendResetLinkEmail')->name('email');
+                Route::get('reset/{token}', 'ResetPasswordController@showResetForm')->name('reset');
+                Route::post('reset', 'ResetPasswordController@reset');
+            });
+    });
 
 /*
  * Registration Routes...
  */
-//$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-//$this->post('register', 'Auth\RegisterController@register');
-$this->get('register', 'RegistrationController@index')->name('register');
-$this->post('register/gewis', 'RegistrationController@registerByGEWISId')->name('register.gewis');
-$this->post('register/external', 'RegistrationController@registerByEmail')->name('register.external');
-
-/*
- * Password Reset Routes...
- */
-$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+Route::prefix('register')
+    ->group(function () {
+        Route::get('/', 'RegistrationController@index')->name('register');
+        Route::post('gewis', 'RegistrationController@registerByGEWISId')->name('register.gewis');
+        Route::post('external', 'RegistrationController@registerByEmail')->name('register.external');
+    });
+//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+//Route::post('register', 'Auth\RegisterController@register');
 
 /*
  * Public Information
  */
 Route::get('/', 'PublicController@index')->name('home');
-Route::get('information/location', 'InformationController@location')->name('information.location');
-Route::get('information/packing-list', 'InformationController@packingList')->name('information.packing-list');
-Route::get('information/pricing', 'InformationController@pricing')->name('information.pricing');
-Route::get('information/schedule', 'InformationController@schedule')->name('information.schedule');
-Route::get('information/visitors', 'InformationController@visitors')->name('information.visitors');
+Route::prefix('information')
+    ->name('information.')
+    ->group(function () {
+        Route::get('location', 'InformationController@location')->name('location');
+        Route::get('packing-list', 'InformationController@packingList')->name('packing-list');
+        Route::get('pricing', 'InformationController@pricing')->name('pricing');
+        Route::get('schedule', 'InformationController@schedule')->name('schedule');
+        Route::get('visitors', 'InformationController@visitors')->name('visitors');
+    });
 
 /*
  * Admin Panel
  */
-Route::namespace('Admin')
+Route::prefix('admin')
     ->middleware(['auth', 'role:admin'])
-    ->prefix('admin')
-    ->as('admin.')
-    ->group(function() {
+    ->name('admin.')
+    ->namespace('Admin')
+    ->group(function () {
         Route::get('/', 'DashboardController@index')->name('home');
     });
