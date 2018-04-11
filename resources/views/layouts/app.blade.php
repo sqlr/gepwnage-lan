@@ -39,6 +39,10 @@
                                class="dropdown-item {{ request()->is('information/location') ? 'active' : '' }}">
                                 Location &amp; Route
                             </a>
+                            <a href="{{ route('information.packing-list') }}"
+                               class="dropdown-item {{ request()->is('information/packing-list') ? 'active' : '' }}">
+                                Packing List
+                            </a>
                             <a href="{{ route('information.pricing') }}"
                                class="dropdown-item {{ request()->is('information/pricing') ? 'active' : '' }}">
                                 Pricing
