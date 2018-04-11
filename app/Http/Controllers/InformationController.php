@@ -13,6 +13,11 @@ class InformationController extends Controller
         ]);
     }
 
+    public function packingList()
+    {
+        return view('information.packing-list');
+    }
+
     public function pricing()
     {
         return view('information.pricing');

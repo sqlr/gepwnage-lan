@@ -16,6 +16,10 @@ class RegistrationController extends Controller
 {
     public function index()
     {
+        if (app()->environment() !== 'local') {
+            return view('registration.closed');
+        }
+
         return view('registration.index');
     }
 

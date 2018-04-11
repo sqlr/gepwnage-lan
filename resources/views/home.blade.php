@@ -8,7 +8,7 @@
             </h1>
             <h2>May 18-19-20, 2018</h2>
             <h3>Community Center de Ronde, Eindhoven</h3>
-            <a href="{{ route('register') }}" class="btn btn-outline-light btn-lg mt-5">Sign up!</a>
+            <a href="{{ route('register') }}" class="btn btn-outline-light btn-lg mt-5">Register</a>
         </div>
     </div>
 @endsection
@@ -75,7 +75,7 @@
         </div>
 
         <div align="center">
-            <a href="{{ route('register') }}" class="btn btn-outline-gepwnage btn-lg">Sign up!</a>
+            <a href="{{ route('register') }}" class="btn btn-outline-gepwnage btn-lg">Register</a>
         </div>
     </div>
 @endsection

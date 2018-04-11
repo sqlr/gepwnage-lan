@@ -40,6 +40,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
  */
 Route::get('/', 'PublicController@index')->name('home');
 Route::get('information/location', 'InformationController@location')->name('information.location');
+Route::get('information/packing-list', 'InformationController@packingList')->name('information.packing-list');
 Route::get('information/pricing', 'InformationController@pricing')->name('information.pricing');
 Route::get('information/schedule', 'InformationController@schedule')->name('information.schedule');
 Route::get('information/visitors', 'InformationController@visitors')->name('information.visitors');

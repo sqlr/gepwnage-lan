@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
+                <!--
                 <div class="row justify-content-center text-center">
                     <div class="col-12 col-md-3 py-2">
                         <a href="#walking" class="btn btn-block btn-outline-gepwnage">
@@ -28,13 +29,12 @@
                 </div>
 
                 <hr/>
+                -->
 
                 <h1>Community Center de Ronde</h1>
                 <p>The location of this year's LAN-party is <b>Community Center de Ronde</b>. Located within the ring
-                    road of
-                    Eindhoven on the Tongelresestraat, it is host to several communities and weekly activities. It will
-                    be host
-                    to the GEPWNAGE LAN for the fourth time in history.</p>
+                    road of Eindhoven on the Tongelresestraat, it is host to several communities and weekly activities.
+                    It will be host to the GEPWNAGE LAN for the fourth time in history.</p>
 
                 <h2>Address</h2>
                 <div class="row">
@@ -58,12 +58,14 @@
                     </div>
                 </div>
 
+                <!--
                 <hr/>
 
                 <h2>Walking</h2>
                 <h2>Bicycle</h2>
                 <h2>Public Transport</h2>
                 <h2>Car</h2>
+                -->
             </div>
         </div>
     </div>
