@@ -44,3 +44,14 @@ Route::get('information/packing-list', 'InformationController@packingList')->nam
 Route::get('information/pricing', 'InformationController@pricing')->name('information.pricing');
 Route::get('information/schedule', 'InformationController@schedule')->name('information.schedule');
 Route::get('information/visitors', 'InformationController@visitors')->name('information.visitors');
+
+/*
+ * Admin Panel
+ */
+Route::namespace('Admin')
+    ->middleware(['auth', 'role:admin'])
+    ->prefix('admin')
+    ->as('admin.')
+    ->group(function() {
+        Route::get('/', 'DashboardController@index')->name('home');
+    });
