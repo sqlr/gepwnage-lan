@@ -32,9 +32,9 @@
                 -->
 
                 <h1>Community Center de Ronde</h1>
-                <p>The location of this year's LAN-party is <b>Community Center de Ronde</b>. Located within the ring
-                    road of Eindhoven on the Tongelresestraat, it is host to several communities and weekly activities.
-                    It will be host to the GEPWNAGE LAN for the fourth time in history.</p>
+                <p class="lead">Located within the ring road of Eindhoven on the Tongelresestraat, it is host to several
+                    communities and weekly activities. It will be host to the GEPWNAGE LAN for the fourth time in
+                    history.</p>
 
                 <h2>Address</h2>
                 <div class="row">
