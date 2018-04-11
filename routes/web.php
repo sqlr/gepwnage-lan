@@ -58,6 +58,8 @@ Route::prefix('information')
         Route::get('visitors', 'InformationController@visitors')->name('visitors');
     });
 
+Route::get('poster', 'PosterController@index')->name('poster');
+
 /*
  * Admin Panel
  */
