@@ -7,7 +7,7 @@
                 <h1>Registrations closed</h1>
 
                 <p>Sorry, but registrations are closed at this point of time. We expect to open registrations on:</p>
-                <p class="lead m-4"><b>Wednesday April 18, 2018</b>, at <b>13:37</b>h.</p>
+                <p class="lead m-4"><b>Friday April 20, 2018</b>, at <b>17:30</b>h.</p>
             </div>
         </div>
     </div>
