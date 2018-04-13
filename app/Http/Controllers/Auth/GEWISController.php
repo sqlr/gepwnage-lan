@@ -130,12 +130,15 @@ class GEWISController extends Controller
      */
     protected function createUser(Member $member): User
     {
+        /** @var User $user */
         $user = User::create([
             'gewis_id' => $member->lidnr,
             'name' => $member->initials . ' ' . $member->lastName,
             'email' => $member->email,
             'password' => Hash::make(str_random(128)),
         ]);
+
+        $user->groups()->attach('gewis');
 
         Log::notice('User registered', [
             'user_id' => $user->id,

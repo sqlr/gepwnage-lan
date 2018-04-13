@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
@@ -13,6 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property int $id
  * @property null|int $gewis_id
  *
+ * @property Collection $groups
  * @property Collection $roles
  *
  * @property string $name
@@ -20,9 +22,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $password
  *
  * @property null|string $remember_token
- * @property null|\Carbon\Carbon $created_at
- * @property null|\Carbon\Carbon $updated_at
- * @property null|\Carbon\Carbon $deleted_at
+ * @property null|Carbon $created_at
+ * @property null|Carbon $updated_at
+ * @property null|Carbon $deleted_at
  */
 class User extends Authenticatable
 {
@@ -44,12 +46,19 @@ class User extends Authenticatable
 
     /** @inheritdoc */
     protected $with = [
+        'groups',
         'roles',
     ];
 
     /**
-     * The roles the user has
-     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class);
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles()

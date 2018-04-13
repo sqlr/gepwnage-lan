@@ -120,8 +120,6 @@
                             </div>
                         </li>
                     @endauth
-
-                    {{--@include('layouts.components.locale')--}}
                 </ul>
             </div>
         </div>

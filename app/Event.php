@@ -11,9 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  *
  * @property string $name
+ * @property null|Carbon $start
+ * @property null|Carbon $end
  *
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property null|Carbon $created_at
+ * @property null|Carbon $updated_at
  */
 class Event extends Model
 {

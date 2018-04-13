@@ -11,9 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  *
  * @property string $name
+ * @property null|int $stock
+ * @property double $price
  *
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property null|Carbon $created_at
+ * @property null|Carbon $updated_at
  */
 class Ticket extends Model
 {
@@ -29,4 +31,17 @@ class Ticket extends Model
         'stock' => 'integer',
         'price' => 'double',
     ];
+
+    /** @inheritdoc */
+    protected $with = [
+        'groups',
+    ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class);
+    }
 }

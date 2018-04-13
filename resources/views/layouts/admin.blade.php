@@ -43,16 +43,6 @@
                                class="dropdown-item {{ request()->is('information/pricing') ? 'active' : '' }}">
                                 Pricing
                             </a>
-                            <!--
-                            <a href="{{ route('information.schedule') }}"
-                               class="dropdown-item {{ request()->is('information/schedule') ? 'active' : '' }}">
-                                Schedule
-                            </a>
-                            <a href="{{ route('information.visitors') }}"
-                               class="dropdown-item {{ request()->is('information/visitors') ? 'active' : '' }}">
-                                Visitors
-                            </a>
-                            -->
                         </div>
                     </li>
                 </ul>
@@ -69,10 +59,6 @@
                             </div>
 
                             <div class="dropdown-menu">
-                                {{--<a class="dropdown-item" href="{{ route('home') }}">--}}
-                                {{--My Ticket--}}
-                                {{--</a>--}}
-                                {{--<div class="dropdown-divider"></div>--}}
                                 @if(auth()->user()->roles->contains('admin'))
                                     <a class="dropdown-item" href="{{ route('admin.home') }}" target="_blank">
                                         Admin Panel
@@ -99,8 +85,6 @@
                             <a href="{{ route('login') }}" class="nav-link">Login</a>
                         </li>
                     @endauth
-
-                    {{--@include('layouts.components.locale')--}}
                 </ul>
             </div>
         </div>

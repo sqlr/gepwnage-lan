@@ -12,8 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  *
  * @property Collection $users
+ * @property Collection $tickets
  */
-class Role extends Model
+class Group extends Model
 {
     /** @inheritdoc */
     protected $primaryKey = 'slug';
@@ -28,10 +29,20 @@ class Role extends Model
     public $timestamps = false;
 
     /**
+     * Users belonging to the role
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tickets()
+    {
+        return $this->belongsToMany(Ticket::class);
     }
 }
