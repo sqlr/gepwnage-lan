@@ -36,11 +36,14 @@ return [
     ],
 
     'gewis' => [
-        'key' => ENV('GEWIS_KEY'),
+        'url' => env('GEWIS_URL', 'https://gewis.nl/'),
+        'id' => env('GEWIS_ID'),
+        'secret' => env('GEWIS_SECRET'),
+        'key' => env('GEWIS_KEY'),
     ],
 
     'google' => [
-        'key' => ENV('GOOGLE_KEY'),
+        'key' => env('GOOGLE_KEY'),
     ],
 
 ];

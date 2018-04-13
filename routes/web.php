@@ -30,6 +30,9 @@ Route::namespace('Auth')
                 Route::get('reset/{token}', 'ResetPasswordController@showResetForm')->name('reset');
                 Route::post('reset', 'ResetPasswordController@reset');
             });
+
+        Route::get('gewis/login', 'GEWISController@login')->name('gewis.login');
+        Route::get('gewis/callback', 'GEWISController@callback')->name('gewis.callback');
     });
 
 /*

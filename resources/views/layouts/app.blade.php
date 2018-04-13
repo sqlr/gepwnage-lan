@@ -99,8 +99,23 @@
                                 Register
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('login') }}" class="nav-link">Login</a>
+                        <li class="nav-item dropdown">
+                            <div role="button"
+                                 class="nav-link dropdown-toggle"
+                                 style="cursor: pointer;"
+                                 data-toggle="dropdown">
+                                Login
+                                <span class="caret"></span>
+                            </div>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('gewis.login') }}">
+                                    Via GEWIS
+                                </a>
+                                <a class="dropdown-item" href="{{ route('login') }}">
+                                    Regular
+                                </a>
+                            </div>
                         </li>
                     @endauth
 
