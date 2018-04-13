@@ -4,16 +4,30 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Firebase\JWT\JWT;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Sqlr\GEWIS\Exceptions\InvalidKey;
+use Sqlr\GEWIS\Exceptions\ServiceUnavailable;
+use Sqlr\GEWIS\GEWIS;
+use Sqlr\GEWIS\Model\Member;
 
 class GEWISController extends Controller
 {
+    /** @var GEWIS */
+    protected $gewis;
+
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param GEWIS $gewis
      */
-    public function __construct()
+    public function __construct(GEWIS $gewis)
     {
+        $this->gewis = $gewis;
+
         $this->middleware('guest');
     }
 
@@ -25,21 +39,105 @@ class GEWISController extends Controller
     public function login()
     {
         return redirect()->away(sprintf(
-            '%stoken/%s',
-            str_finish(config('services.gewis.url'), '/'),
+            '%s/token/%s',
+            rtrim(config('services.gewis.url'), '/'),
             config('services.gewis.id')
         ));
     }
 
     /**
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return Response
      */
-    public function callback()
+    public function callback(Request $request)
     {
-        $user = new User;
+        $payload = JWT::decode(
+            $request->get('token'),
+            config('services.gewis.secret'),
+            ['HS256']
+        );
 
-        auth()->guard()->login($user);
+        // Log in existing users directly.
+        $user = User::select()
+            ->where('gewis_id', '=', $payload->lidnr)
+            ->first();
+        if ($user) {
+            auth()->guard()->login($user);
+            return redirect()->route('home');
+        }
 
-        return redirect()->route('home');
+        // Try to get user metadata.
+        $member = $this->getGEWISMember($payload->lidnr);
+        if (is_null($member)) {
+            return redirect()->route('register');
+        }
+
+        // See if user exists but without GEWIS coupling
+        if (User::where('email', $member->email)->exists()) {
+            session()->flash('alert-warning', [
+                'title' => 'Double registration',
+                'message' => sprintf(
+                    'The e-mail address %s for GEWIS member %d is already registered in our system.',
+                    $member->email,
+                    $member->lidnr
+                ),
+            ]);
+            return redirect()->route('register');
+        }
+
+        // Create new user for GEWIS member
+        $this->createUser($member);
+        return redirect()->route('register');
+    }
+
+    /**
+     * @param int $gewis_id
+     * @return null|Member
+     */
+    protected function getGEWISMember(int $gewis_id): ?Member
+    {
+        try {
+            return $this->gewis->findMemberById($gewis_id);
+        } catch (InvalidKey|ServiceUnavailable $e) {
+            Log::critical('GEWIS API unavailable', [
+                'gewis_id' => $gewis_id,
+            ]);
+
+            session()->flash('alert-danger', [
+                'title' => '500 - Oh my ...',
+                'message' => [
+                    'A connection to GEWIS could not be established.',
+                    'If the problem is recurring, try creating an account differently.',
+                ],
+            ]);
+        }
+
+        return null;
+    }
+
+    /**
+     * @param Member $member
+     */
+    protected function createUser(Member $member)
+    {
+        $user = User::create([
+            'gewis_id' => $member->lidnr,
+            'name' => $member->initials . ' ' . $member->lastName,
+            'email' => $member->email,
+            'password' => Hash::make(str_random(128)),
+        ]);
+
+        Log::notice('User registered', [
+            'user_id' => $user->id,
+            'gewis_id' => $user->gewis_id,
+            'name' => $user->name,
+        ]);
+
+        session()->flash('alert-success', [
+            'title' => 'Account created.',
+            'message' => [
+                'We have created an account for you in our system. Welcome!',
+            ],
+        ]);
     }
 }

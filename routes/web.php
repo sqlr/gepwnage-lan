@@ -41,7 +41,6 @@ Route::namespace('Auth')
 Route::prefix('register')
     ->group(function () {
         Route::get('/', 'RegistrationController@index')->name('register');
-        Route::post('gewis', 'RegistrationController@registerByGEWISId')->name('register.gewis');
         Route::post('external', 'RegistrationController@registerByEmail')->name('register.external');
     });
 //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
