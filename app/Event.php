@@ -17,22 +17,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Event extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    /** @inheritdoc */
     protected $fillable = [
         'name',
         'start',
         'end',
     ];
 
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
+    /** @inheritdoc */
     protected $dates = [
         'start',
         'end',

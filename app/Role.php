@@ -15,24 +15,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
-    /**
-     * @inheritdoc
-     */
+    /** @inheritdoc */
     protected $primaryKey = 'slug';
 
-    /**
-     * @inheritdoc
-     */
+    /** @inheritdoc */
     protected $keyType = 'string';
 
-    /**
-     * @inheritdoc
-     */
+    /** @inheritdoc */
     public $incrementing = false;
 
-    /**
-     * @inheritdoc
-     */
+    /** @inheritdoc */
     public $timestamps = false;
 
     /**

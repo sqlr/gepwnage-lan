@@ -28,11 +28,7 @@ class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    /** @inheritdoc */
     protected $fillable = [
         'gewis_id',
         'name',
@@ -40,21 +36,13 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    /** @inheritdoc */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
+    /** @inheritdoc */
     protected $with = [
         'roles',
     ];

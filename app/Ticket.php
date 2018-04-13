@@ -17,12 +17,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Ticket extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    /** @inheritdoc */
     protected $fillable = [
         'name',
+        'stock',
+        'price',
+    ];
+
+    /** @inheritdoc */
+    protected $casts = [
+        'stock' => 'integer',
+        'price' => 'double',
     ];
 }
