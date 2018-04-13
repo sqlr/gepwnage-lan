@@ -8,8 +8,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
- * Class User
- *
  * @package App
  *
  * @property int $id

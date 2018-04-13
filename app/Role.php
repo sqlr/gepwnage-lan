@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Role
- *
  * @package App
  *
  * @property string $slug

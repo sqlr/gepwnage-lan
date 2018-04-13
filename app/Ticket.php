@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-class Sponsor extends Model
+class Ticket extends Model
 {
     /**
      * The attributes that are mass assignable.
