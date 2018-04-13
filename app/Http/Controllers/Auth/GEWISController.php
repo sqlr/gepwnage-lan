@@ -86,7 +86,8 @@ class GEWISController extends Controller
         }
 
         // Create new user for GEWIS member
-        $this->createUser($member);
+        $user = $this->createUser($member);
+        auth()->guard()->login($user);
         return redirect()->route('register');
     }
 
@@ -117,8 +118,9 @@ class GEWISController extends Controller
 
     /**
      * @param Member $member
+     * @return User
      */
-    protected function createUser(Member $member)
+    protected function createUser(Member $member): User
     {
         $user = User::create([
             'gewis_id' => $member->lidnr,
@@ -139,5 +141,7 @@ class GEWISController extends Controller
                 'We have created an account for you in our system. Welcome!',
             ],
         ]);
+
+        return $user;
     }
 }
