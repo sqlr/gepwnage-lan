@@ -104,7 +104,7 @@
                 <small>/</small>
                 @if ((new DateTime("2018-04-18 13:37:00"))->diff(new DateTime())->invert)
                     <br/>
-                    <small>Registrations open April 18, 13:37h</small>
+                    <small>Registrations open April 20, 17:30h</small>
                 @endif
             </p>
         </div>
