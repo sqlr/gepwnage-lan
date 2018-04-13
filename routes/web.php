@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
  */
 Route::namespace('Auth')
     ->group(function () {
+        Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
+        Route::post('register', 'RegisterController@register');
+
         Route::get('login', 'LoginController@showLoginForm')->name('login');
         Route::post('login', 'LoginController@login');
         Route::post('logout', 'LoginController@logout')->name('logout');
@@ -31,20 +34,19 @@ Route::namespace('Auth')
                 Route::post('reset', 'ResetPasswordController@reset');
             });
 
-        Route::get('gewis/login', 'GEWISController@login')->name('gewis.login');
-        Route::get('gewis/callback', 'GEWISController@callback')->name('gewis.callback');
+        Route::prefix('gewis')
+            ->name('gewis.')
+            ->group(function () {
+                Route::get('login', 'GEWISController@login')->name('login');
+                Route::get('callback', 'GEWISController@callback')->name('callback');
+            });
     });
 
-/*
- * Registration Routes...
- */
-Route::prefix('register')
-    ->group(function () {
-        Route::get('/', 'RegistrationController@index')->name('register');
-        Route::post('external', 'RegistrationController@registerByEmail')->name('register.external');
-    });
-//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-//Route::post('register', 'Auth\RegisterController@register');
+//Route::prefix('register')
+//    ->group(function () {
+//        Route::get('/', 'RegistrationController@index')->name('register');
+//        Route::post('external', 'RegistrationController@registerByEmail')->name('register.external');
+//    });
 
 /*
  * Public Information
@@ -61,6 +63,11 @@ Route::prefix('information')
     });
 
 Route::get('poster', 'PosterController@index')->name('poster');
+
+/*
+ * Tickets
+ */
+Route::get('tickets', 'TicketController@index')->name('tickets');
 
 /*
  * Admin Panel

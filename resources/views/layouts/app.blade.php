@@ -61,6 +61,12 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    <li class="px-md-3">
+                        <a href="{{ route('tickets') }}"
+                           class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
+                            Tickets
+                        </a>
+                    </li>
 
                     @auth
                         <li class="nav-item dropdown">
@@ -93,12 +99,6 @@
                             </div>
                         </li>
                     @else
-                        <li class="px-md-3">
-                            <a href="{{ route('register') }}"
-                               class="nav-link text-gepwnage-secondary {{ request()->is('register') ? 'active' : '' }}">
-                                Register
-                            </a>
-                        </li>
                         <li class="nav-item dropdown">
                             <div role="button"
                                  class="nav-link dropdown-toggle"
@@ -109,11 +109,12 @@
                             </div>
 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('gewis.login') }}">
-                                    Via GEWIS
-                                </a>
                                 <a class="dropdown-item" href="{{ route('login') }}">
-                                    Regular
+                                    Local Login
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('gewis.login') }}">
+                                    <span class="text-gewis">GEWIS</span> Login
                                 </a>
                             </div>
                         </li>
