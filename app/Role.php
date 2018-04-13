@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  *
  * @property string $slug
- * @property string $name
  *
- * @property Collection $users
+ * @property Collection|User[] $users
+ *
+ * @property string $name
  */
 class Role extends Model
 {

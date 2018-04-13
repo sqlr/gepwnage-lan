@@ -14,8 +14,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property int $id
  * @property null|int $gewis_id
  *
- * @property Collection $groups
- * @property Collection $roles
+ * @property Collection|Group[] $groups
+ * @property Collection|Order[] $orders
+ * @property Collection|Role[] $roles
  *
  * @property string $name
  * @property string $email
@@ -56,6 +57,14 @@ class User extends Authenticatable
     public function groups()
     {
         return $this->belongsToMany(Group::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 
     /**

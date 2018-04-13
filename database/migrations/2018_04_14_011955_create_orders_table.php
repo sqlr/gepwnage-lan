@@ -1,10 +1,11 @@
 <?php
 
+use App\Order;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTicketsTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +14,13 @@ class CreateTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('ticket_id');
 
-            $table->string('name');
-            $table->integer('stock')->nullable();
             $table->float('price');
+            $table->string('status')->default(Order::STATUS_PENDING);
 
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ class CreateTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('orders');
     }
 }

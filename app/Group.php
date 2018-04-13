@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  *
  * @property string $slug
- * @property string $name
  *
- * @property Collection $users
- * @property Collection $tickets
+ * @property Collection|User[] $users
+ * @property Collection|Ticket[] $tickets
+ *
+ * @property string $name
  */
 class Group extends Model
 {

@@ -3,12 +3,16 @@
 namespace App;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @package App
  *
  * @property int $id
+ *
+ * @property Collection|Group[] $groups
+ * @property Collection|Order[] $orders
  *
  * @property string $name
  * @property null|int $stock
@@ -43,5 +47,13 @@ class Ticket extends Model
     public function groups()
     {
         return $this->belongsToMany(Group::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
