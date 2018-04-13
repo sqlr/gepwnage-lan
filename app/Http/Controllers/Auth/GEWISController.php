@@ -88,6 +88,14 @@ class GEWISController extends Controller
         // Create new user for GEWIS member
         $user = $this->createUser($member);
         auth()->guard()->login($user);
+
+        session()->flash('alert-success', [
+            'title' => 'Account created.',
+            'message' => [
+                'We have created an account for you in our system. Welcome!',
+            ],
+        ]);
+
         return redirect()->route('register');
     }
 
@@ -133,13 +141,6 @@ class GEWISController extends Controller
             'user_id' => $user->id,
             'gewis_id' => $user->gewis_id,
             'name' => $user->name,
-        ]);
-
-        session()->flash('alert-success', [
-            'title' => 'Account created.',
-            'message' => [
-                'We have created an account for you in our system. Welcome!',
-            ],
         ]);
 
         return $user;
