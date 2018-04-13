@@ -42,12 +42,6 @@ Route::namespace('Auth')
             });
     });
 
-//Route::prefix('register')
-//    ->group(function () {
-//        Route::get('/', 'RegistrationController@index')->name('register');
-//        Route::post('external', 'RegistrationController@registerByEmail')->name('register.external');
-//    });
-
 /*
  * Public Information
  */

@@ -19,12 +19,21 @@
                     </p>
                 @else
                     <p>
-                        You can, however, register an account on this website. For members of GEWIS this requires
-                        clicking two links and logging in at GEWIS once. We will then send you a reminder on the day
-                        ticket sales open.
+                        You can, however, register an account on this website in order to get reminders and be able to
+                        buy a ticket with less clicks.
                     </p>
-                    <p class="text-center">
+                    <p>
+                        For members of GEWIS this requires clicking the below link and logging in at GEWIS once. We will
+                        then send you a reminder on the day ticket sales open.
+                    </p>
+                    <p class="text-center my-4">
                         <a href="{{ route('gewis.login') }}" class="btn btn-outline-gewis">Login via GEWIS</a>
+                    </p>
+                    <p>
+                        For all those who are not a member of GEWIS, you can create an account using the form behind
+                        the button below. We will send you a reminder on the day ticket sales open.
+                    </p>
+                    <p class="text-center my-4">
                         <a href="{{ route('register') }}" class="btn btn-outline-gepwnage">Register</a>
                     </p>
                 @endauth

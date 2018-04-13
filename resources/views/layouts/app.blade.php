@@ -79,15 +79,16 @@
                             </div>
 
                             <div class="dropdown-menu">
-                                {{--<a class="dropdown-item" href="{{ route('home') }}">--}}
-                                {{--My Ticket--}}
-                                {{--</a>--}}
-                                {{--<div class="dropdown-divider"></div>--}}
                                 @if(auth()->user()->roles->contains('admin'))
-                                    <a class="dropdown-item" href="{{ route('admin.home') }}" target="_blank">
+                                    <a class="dropdown-item" href="{{ route('admin.home') }}">
                                         Admin Panel
                                     </a>
+                                    <div class="dropdown-divider"></div>
                                 @endif
+                                {{--<a class="dropdown-item" href="#">--}}
+                                    {{--My Profile--}}
+                                {{--</a>--}}
+                                {{--<div class="dropdown-divider"></div>--}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout
@@ -110,7 +111,7 @@
 
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('login') }}">
-                                    Local Login
+                                    Login
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('gewis.login') }}">
