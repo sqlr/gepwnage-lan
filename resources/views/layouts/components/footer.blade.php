@@ -56,9 +56,6 @@
             <h4>Sponsored by</h4>
             <div class="carousel slide" data-interval="3000" data-ride="carousel">
                 <div class="carousel-inner">
-                    <a href="mailto:lan@gepwnage.nl" class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('images/yourlogohere.jpg') }}"/>
-                    </a>
                     @foreach ($sponsors as $sponsor)
                         <div class="carousel-item">
                             <img src="{{ asset('storage/sponsor/' . $sponsor->slug . '.png') }}"
@@ -66,7 +63,9 @@
                                  class="d-block w-100">
                         </div>
                     @endforeach
-                    {{-- TODO Add sponsors here --}}
+                    <a href="mailto:lan@gepwnage.nl" class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('images/yourlogohere.jpg') }}"/>
+                    </a>
                 </div>
             </div>
         </div>
