@@ -6,17 +6,25 @@ use App\Order;
 use App\Ticket;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Auth\AuthenticationException;
 
 class TicketController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws AuthenticationException
+     */
     public function index()
     {
         $opens = new Carbon('2018-04-20 17:30:00', new \DateTimeZone('Europe/Amsterdam'));
-
-        if (now() < $opens && app()->environment() !== 'local') {
+        if (now() < $opens && (!auth()->check() || !auth()->user()->groups->contains('gepwnage'))) {
             return view('tickets.closed', [
                 'opens' => $opens,
             ]);
+        }
+
+        if (!auth()->check()) {
+            throw new AuthenticationException;
         }
 
         return view('tickets.index', [
@@ -39,7 +47,7 @@ class TicketController extends Controller
     }
 
     /**
-     * @param Ticket $ticket
+     * @param  Ticket $ticket
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
@@ -58,7 +66,7 @@ class TicketController extends Controller
 
         $order->save();
 
-        if ($ticket->stock !== null) {
+        if ($ticket->stock !== null && $ticket->stock > 0) {
             $ticket->decrement('stock');
         }
 

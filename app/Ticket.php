@@ -18,6 +18,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property null|int $stock
  * @property double $price
  *
+ * @property boolean $sold_out
+ * @property boolean $unlimited_stock
+ *
  * @property null|Carbon $created_at
  * @property null|Carbon $updated_at
  */
@@ -56,5 +59,21 @@ class Ticket extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getUnlimitedStockAttribute()
+    {
+        return $this->stock === null;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSoldOutAttribute()
+    {
+        return $this->stock === 0;
     }
 }

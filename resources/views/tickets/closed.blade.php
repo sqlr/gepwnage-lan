@@ -14,17 +14,17 @@
 
                 @auth
                     <p>
-                        You are registered on this website. We will send you a reminder via email on the day the sales
-                        start.
+                        You are registered on this website. After ticket sales start, you can find the available tickets
+                        on this web address.
                     </p>
+                    <p>We will send you a reminder via email on the day the sales start.</p>
                 @else
                     <p>
-                        You can, however, register an account on this website in order to get reminders and be able to
-                        buy a ticket with less clicks.
+                        You can start now with registering an account on this website. It is needed to buy tickets.
                     </p>
                     <p>
                         For members of GEWIS this requires clicking the below link and logging in at GEWIS once. We will
-                        then send you a reminder on the day ticket sales open.
+                        send you a reminder on the day ticket sales open.
                     </p>
                     <p class="text-center my-4">
                         <a href="{{ route('gewis.login') }}" class="btn btn-outline-gewis">Login via GEWIS</a>

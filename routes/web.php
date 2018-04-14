@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*
+ * Public Information
+ */
+Route::get('/', 'PublicController@index')->name('home');
+Route::prefix('information')
+    ->name('information')
+    ->group(function () {
+        Route::get('location', 'InformationController@location')->name('.location');
+        Route::get('packing-list', 'InformationController@packingList')->name('.packing-list');
+        Route::get('pricing', 'InformationController@pricing')->name('.pricing');
+        Route::get('schedule', 'InformationController@schedule')->name('.schedule');
+        Route::get('visitors', 'InformationController@visitors')->name('.visitors');
+    });
+
+Route::get('poster', 'PosterController@index')->name('poster');
+
+/*
  * Authentication Routes...
  */
 Route::namespace('Auth')
@@ -43,20 +59,14 @@ Route::namespace('Auth')
     });
 
 /*
- * Public Information
+ * User management
  */
-Route::get('/', 'PublicController@index')->name('home');
-Route::prefix('information')
-    ->name('information')
+Route::prefix('users')
+    ->name('users')
+    ->middleware('auth')
     ->group(function () {
-        Route::get('location', 'InformationController@location')->name('.location');
-        Route::get('packing-list', 'InformationController@packingList')->name('.packing-list');
-        Route::get('pricing', 'InformationController@pricing')->name('.pricing');
-        Route::get('schedule', 'InformationController@schedule')->name('.schedule');
-        Route::get('visitors', 'InformationController@visitors')->name('.visitors');
+        Route::get('{user}', 'UserController@show')->name('.show');
     });
-
-Route::get('poster', 'PosterController@index')->name('poster');
 
 /*
  * Ticket Sales
@@ -82,8 +92,8 @@ Route::middleware('auth')
  * Admin Panel
  */
 Route::prefix('admin')
-    ->middleware(['auth', 'role:admin'])
     ->name('admin')
+    ->middleware(['auth', 'role:admin'])
     ->namespace('Admin')
     ->group(function () {
         Route::get('/', 'DashboardController@index')->name('.home');

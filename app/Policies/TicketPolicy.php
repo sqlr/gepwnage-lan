@@ -44,12 +44,12 @@ class TicketPolicy
      */
     public function buy(User $user, Ticket $ticket)
     {
-        if ($ticket->stock === 0) {
+        if ($ticket->sold_out || $user->orders_count > 0) {
             return false;
         }
 
         $opens = new \Carbon\Carbon('2018-04-20 17:30:00', new \DateTimeZone('Europe/Amsterdam'));
-        if (now() < $opens && app()->environment() !== 'local') {
+        if (now() < $opens && (!auth()->check() || !auth()->user()->groups->contains('gepwnage'))) {
             return false;
         }
 

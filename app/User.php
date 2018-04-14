@@ -18,6 +18,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property Collection|Order[] $orders
  * @property Collection|Role[] $roles
  *
+ * @property int $orders_count
+ *
  * @property string $name
  * @property string $email
  * @property string $password

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <h1>My Orders</h1>
 
                 <table class="table my-5">
@@ -20,7 +20,7 @@
                         <tr>
                             <td colspan="4" class="text-center">
                                 No tickets found. Buy your tickets
-                                <a href="{{ route('tickets') }}">here</a>.
+                                <a href="{{ route('tickets') }}" class="font-weight-bold">here</a>.
                             </td>
                         </tr>
                     @endif

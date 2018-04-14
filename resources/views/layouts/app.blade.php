@@ -63,17 +63,10 @@
                 <ul class="navbar-nav ml-auto">
                     @auth
                         <li class="px-md-3">
-                            @if(auth()->user()->orders_count > 0)
-                                <a href="{{ route('orders') }}"
-                                   class="nav-link {{ request()->is('orders') ? 'active' : '' }}">
-                                    My Tickets
-                                </a>
-                            @else
-                                <a href="{{ route('tickets') }}"
-                                   class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
-                                    Tickets
-                                </a>
-                            @endif
+                            <a href="{{ route('tickets') }}"
+                               class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
+                                Tickets
+                            </a>
                         </li>
                         <li class="nav-item dropdown">
                             <div role="button"
@@ -91,6 +84,13 @@
                                     </a>
                                     <div class="dropdown-divider"></div>
                                 @endif
+                                <a class="dropdown-item" href="{{ route('users.show', auth()->user()) }}">
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="{{ route('orders') }}">
+                                    Orders
+                                </a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout
