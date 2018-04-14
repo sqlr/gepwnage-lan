@@ -57,13 +57,13 @@
             <div class="carousel slide" data-interval="3000" data-ride="carousel">
                 <div class="carousel-inner">
                     @foreach ($sponsors as $sponsor)
-                        <div class="carousel-item">
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                             <img src="{{ asset('storage/sponsor/' . $sponsor->slug . '.png') }}"
                                  alt="{{ $sponsor->name }}"
                                  class="d-block w-100">
                         </div>
                     @endforeach
-                    <a href="mailto:lan@gepwnage.nl" class="carousel-item active">
+                    <a href="mailto:lan@gepwnage.nl" class="carousel-item">
                         <img class="d-block w-100" src="{{ asset('images/yourlogohere.jpg') }}"/>
                     </a>
                 </div>
