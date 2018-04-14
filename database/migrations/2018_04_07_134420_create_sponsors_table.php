@@ -14,7 +14,7 @@ class CreateSponsorsTable extends Migration
     public function up()
     {
         Schema::create('sponsors', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('slug')->primary();
 
             $table->string('name');
 

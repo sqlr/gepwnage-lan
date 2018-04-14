@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @package App
  *
- * @property int $id
+ * @property string $slug
  *
  * @property string $name
  *
@@ -18,7 +18,17 @@ use Illuminate\Database\Eloquent\Model;
 class Sponsor extends Model
 {
     /** @inheritdoc */
+    protected $primaryKey = 'slug';
+
+    /** @inheritdoc */
+    protected $keyType = 'string';
+
+    /** @inheritdoc */
+    public $incrementing = false;
+
+    /** @inheritdoc */
     protected $fillable = [
+        'slug',
         'name',
     ];
 }
