@@ -35,12 +35,12 @@
                                         <div class="card-text">{{ str_limit($ticket->description, 280) }}</div>
                                     </div>
                                     @if($ticket->sold_out)
-                                        <div class="btn btn-outline-primary btn-block disabled">
+                                        <div class="btn btn-outline-danger disabled">
                                             Sold Out
                                         </div>
                                     @else
                                         <a href="{{ route('tickets.show', $ticket) }}"
-                                           class="btn btn-outline-primary btn-block">
+                                           class="btn btn-outline-primary">
                                             @can('buy', $ticket)
                                                 Buy Ticket
                                             @else

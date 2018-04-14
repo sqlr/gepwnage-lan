@@ -88,7 +88,7 @@
                                     Profile
                                 </a>
                                 <a class="dropdown-item" href="{{ route('orders') }}">
-                                    Orders
+                                    My Tickets
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
