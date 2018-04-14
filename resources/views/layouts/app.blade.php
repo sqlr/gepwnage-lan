@@ -137,7 +137,7 @@
         @yield('header')
     </header>
 
-    <main class="py-4">
+    <main class="py-4" style="min-height: 60vh;">
         <div class="container">
             @include('layouts.components.alerts')
         </div>
@@ -145,7 +145,7 @@
         @yield('content')
     </main>
 
-    <footer class="mt-5 py-5 bg-dark text-light">
+    <footer class="mt-5 py-5 bg-dark text-light" style="min-height: 40vh;">
         @include('layouts.components.footer')
     </footer>
 </div>
