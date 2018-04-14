@@ -4,11 +4,17 @@ namespace App\Policies;
 
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class UserPolicy
 {
     use HandlesAuthorization;
 
+    /**
+     * @param User $user
+     * @param string $ability
+     * @return bool
+     */
     public function before(User $user, string $ability)
     {
         if ($user->roles->contains('admin')) {
@@ -25,7 +31,11 @@ class UserPolicy
      */
     public function view(User $user, User $target)
     {
-        return $user->is($target);
+        if ($user->is($target)) {
+            return true;
+        }
+
+        throw new NotFoundHttpException;
     }
 
     /**

@@ -10,6 +10,11 @@ class TicketPolicy
 {
     use HandlesAuthorization;
 
+    /**
+     * @param User $user
+     * @param string $ability
+     * @return bool
+     */
     public function before(User $user, string $ability)
     {
         if ($user->roles->contains('admin')) {
