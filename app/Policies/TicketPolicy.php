@@ -31,6 +31,11 @@ class TicketPolicy
      */
     public function view(User $user, Ticket $ticket)
     {
+        $opens = new \Carbon\Carbon('2018-04-20 17:30:00', new \DateTimeZone('Europe/Amsterdam'));
+        if (now() < $opens && (!auth()->check() || !auth()->user()->groups->contains('gepwnage'))) {
+            return false;
+        }
+
         if ($ticket->groups->isEmpty()) {
             return true;
         }
@@ -49,12 +54,12 @@ class TicketPolicy
      */
     public function buy(User $user, Ticket $ticket)
     {
-        if ($ticket->sold_out || $user->orders_count > 0) {
+        $opens = new \Carbon\Carbon('2018-04-20 17:30:00', new \DateTimeZone('Europe/Amsterdam'));
+        if (now() < $opens && (!auth()->check() || !auth()->user()->groups->contains('gepwnage'))) {
             return false;
         }
 
-        $opens = new \Carbon\Carbon('2018-04-20 17:30:00', new \DateTimeZone('Europe/Amsterdam'));
-        if (now() < $opens && (!auth()->check() || !auth()->user()->groups->contains('gepwnage'))) {
+        if ($ticket->sold_out || $user->orders_count > 0) {
             return false;
         }
 
