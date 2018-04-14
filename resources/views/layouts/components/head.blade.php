@@ -6,6 +6,7 @@
 
 {{-- Branding --}}
 <title>{{ config('app.name', 'GEPWNAGE LAN') }}</title>
+<meta name="theme-color" content="#013370"/>
 
 {{-- Scripts --}}
 <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
