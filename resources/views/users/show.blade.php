@@ -34,7 +34,7 @@
                         </tbody>
                     </table>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Edit</a>
+                        {{--<a href="#" class="btn btn-primary">Edit</a>--}}
                     </div>
                 </div>
             </div>
