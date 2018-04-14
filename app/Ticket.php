@@ -26,6 +26,7 @@ class Ticket extends Model
     /** @inheritdoc */
     protected $fillable = [
         'name',
+        'description',
         'stock',
         'price',
     ];

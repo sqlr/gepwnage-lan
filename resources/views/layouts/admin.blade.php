@@ -8,7 +8,7 @@
 <body>
 
 <div id="app">
-    <nav class="navbar navbar-dark navbar-expand-md navbar-primary">
+    <nav class="navbar navbar-dark navbar-expand-md">
         <div class="container">
             <a href="{{ route('home') }}" class="navbar-brand">
                 <img src="{{ asset('images/logo_30x21.png') }}" alt="{{ config('app.name') }}"/>

@@ -26,19 +26,19 @@ Route::namespace('Auth')
         Route::post('logout', 'LoginController@logout')->name('logout');
 
         Route::prefix('password')
-            ->name('password.')
+            ->name('password')
             ->group(function () {
-                Route::get('reset', 'ForgotPasswordController@showLinkRequestForm')->name('request');
-                Route::post('email', 'ForgotPasswordController@sendResetLinkEmail')->name('email');
-                Route::get('reset/{token}', 'ResetPasswordController@showResetForm')->name('reset');
+                Route::get('reset', 'ForgotPasswordController@showLinkRequestForm')->name('.request');
+                Route::post('email', 'ForgotPasswordController@sendResetLinkEmail')->name('.email');
+                Route::get('reset/{token}', 'ResetPasswordController@showResetForm')->name('.reset');
                 Route::post('reset', 'ResetPasswordController@reset');
             });
 
         Route::prefix('gewis')
-            ->name('gewis.')
+            ->name('gewis')
             ->group(function () {
-                Route::get('login', 'GEWISController@login')->name('login');
-                Route::get('callback', 'GEWISController@callback')->name('callback');
+                Route::get('login', 'GEWISController@login')->name('.login');
+                Route::get('callback', 'GEWISController@callback')->name('.callback');
             });
     });
 
@@ -47,29 +47,44 @@ Route::namespace('Auth')
  */
 Route::get('/', 'PublicController@index')->name('home');
 Route::prefix('information')
-    ->name('information.')
+    ->name('information')
     ->group(function () {
-        Route::get('location', 'InformationController@location')->name('location');
-        Route::get('packing-list', 'InformationController@packingList')->name('packing-list');
-        Route::get('pricing', 'InformationController@pricing')->name('pricing');
-        Route::get('schedule', 'InformationController@schedule')->name('schedule');
-        Route::get('visitors', 'InformationController@visitors')->name('visitors');
+        Route::get('location', 'InformationController@location')->name('.location');
+        Route::get('packing-list', 'InformationController@packingList')->name('.packing-list');
+        Route::get('pricing', 'InformationController@pricing')->name('.pricing');
+        Route::get('schedule', 'InformationController@schedule')->name('.schedule');
+        Route::get('visitors', 'InformationController@visitors')->name('.visitors');
     });
 
 Route::get('poster', 'PosterController@index')->name('poster');
 
 /*
- * Tickets
+ * Ticket Sales
  */
-Route::get('tickets', 'TicketController@index')->name('tickets');
+Route::prefix('tickets')
+    ->name('tickets')
+    ->group(function () {
+        Route::get('/', 'TicketController@index');
+
+        Route::middleware('auth')
+            ->group(function () {
+                Route::get('{ticket}', 'TicketController@show')->name('.show');
+                Route::post('{ticket}', 'TicketController@buy')->name('.buy');
+            });
+    });
+
+Route::middleware('auth')
+    ->group(function () {
+        Route::get('orders', 'OrderController@index')->name('orders');
+    });
 
 /*
  * Admin Panel
  */
 Route::prefix('admin')
     ->middleware(['auth', 'role:admin'])
-    ->name('admin.')
+    ->name('admin')
     ->namespace('Admin')
     ->group(function () {
-        Route::get('/', 'DashboardController@index')->name('home');
+        Route::get('/', 'DashboardController@index')->name('.home');
     });

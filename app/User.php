@@ -51,6 +51,11 @@ class User extends Authenticatable
         'roles',
     ];
 
+    /** @inheritdoc */
+    protected $withCount = [
+        'orders',
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

@@ -30,11 +30,6 @@ class Order extends Model
     ];
 
     /** @inheritdoc */
-    protected $fillable = [
-        'price',
-    ];
-
-    /** @inheritdoc */
     protected $casts = [
         'price' => 'double',
     ];

@@ -19,8 +19,8 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id');
             $table->integer('ticket_id');
 
-            $table->float('price');
-            $table->string('status')->default(Order::STATUS_PENDING);
+            $table->double('price', 8, 2);
+            $table->enum('status', Order::STATUSES)->default(Order::STATUS_PENDING);
 
             $table->timestamps();
         });

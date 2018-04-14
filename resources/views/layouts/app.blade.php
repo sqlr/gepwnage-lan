@@ -47,7 +47,7 @@
                                class="dropdown-item {{ request()->is('information/pricing') ? 'active' : '' }}">
                                 Pricing
                             </a>
-                            <!--
+                        <!--
                             <a href="{{ route('information.schedule') }}"
                                class="dropdown-item {{ request()->is('information/schedule') ? 'active' : '' }}">
                                 Schedule
@@ -61,14 +61,20 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="px-md-3">
-                        <a href="{{ route('tickets') }}"
-                           class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
-                            Tickets
-                        </a>
-                    </li>
-
                     @auth
+                        <li class="px-md-3">
+                            @if(auth()->user()->orders_count > 0)
+                                <a href="{{ route('orders') }}"
+                                   class="nav-link {{ request()->is('orders') ? 'active' : '' }}">
+                                    My Tickets
+                                </a>
+                            @else
+                                <a href="{{ route('tickets') }}"
+                                   class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
+                                    Tickets
+                                </a>
+                            @endif
+                        </li>
                         <li class="nav-item dropdown">
                             <div role="button"
                                  class="nav-link dropdown-toggle"
@@ -85,10 +91,6 @@
                                     </a>
                                     <div class="dropdown-divider"></div>
                                 @endif
-                                {{--<a class="dropdown-item" href="#">--}}
-                                    {{--My Profile--}}
-                                {{--</a>--}}
-                                {{--<div class="dropdown-divider"></div>--}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout
@@ -100,6 +102,12 @@
                             </div>
                         </li>
                     @else
+                        <li class="px-md-3">
+                            <a href="{{ route('tickets') }}"
+                               class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
+                                Tickets
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <div role="button"
                                  class="nav-link dropdown-toggle"
