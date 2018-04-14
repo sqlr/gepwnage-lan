@@ -59,6 +59,13 @@
                     <a href="mailto:lan@gepwnage.nl" class="carousel-item active">
                         <img class="d-block w-100" src="{{ asset('images/yourlogohere.jpg') }}"/>
                     </a>
+                    @foreach ($sponsors as $sponsor)
+                        <div class="carousel-item">
+                            <img src="{{ asset('storage/sponsor/' . $sponsor->slug . '.png') }}"
+                                 alt="{{ $sponsor->name }}"
+                                 class="d-block w-100">
+                        </div>
+                    @endforeach
                     {{-- TODO Add sponsors here --}}
                 </div>
             </div>
