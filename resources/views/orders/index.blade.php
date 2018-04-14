@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <h1>My Tickets</h1>
 
-                <div class="card card-default my-5">
+                <div class="card card-default my-5 table-responsive-md">
                     <table class="table">
                         <thead class="thead-light">
                         <tr>
