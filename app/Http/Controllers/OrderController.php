@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+
 class OrderController extends Controller
 {
-    public function index()
+    /**
+     * @param Order $order
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function show(Order $order)
     {
-        return view('orders.index', [
-            'orders' => auth()->user()->orders,
+        $this->authorize('view', $order);
+
+        return view('orders.show', [
+            'order' => $order,
+            'ticket' => $order->ticket,
         ]);
     }
 }

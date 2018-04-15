@@ -23,12 +23,7 @@
                         <tr>
                             <th>GEWIS member</th>
                             <td>
-                                @if ($user->gewis_id)
-                                    Yes,
-                                    <small>({{ $user->gewis_id }})</small>
-                                @else
-                                    No.
-                                @endif
+                                {{ $user->gewis_id ?? 'No.' }}
                             </td>
                         </tr>
                         </tbody>

@@ -10,13 +10,13 @@
                 @endguest
 
                 @auth
-                    @if(auth()->user()->orders_count > 0)
+                    @if($order = auth()->user()->order)
                         <div class="alert alert-info my-4">
-                            <h4 class="alert-heading">Your Orders</h4>
+                            <h4 class="alert-heading">Your Ticket</h4>
                             <p>
                                 You seem to have ordered a ticket before. Click
-                                <a href="{{ route('orders') }}" class="alert-link">here</a>
-                                to view your orders.
+                                <a href="{{ route('orders.show', $order) }}" class="alert-link">here</a>
+                                to view your ticket.
                             </p>
                         </div>
                     @endif

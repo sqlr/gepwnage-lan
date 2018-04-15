@@ -15,10 +15,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property null|int $gewis_id
  *
  * @property Collection|Group[] $groups
- * @property Collection|Order[] $orders
+ * @property Collection|Order[] $order
  * @property Collection|Role[] $roles
- *
- * @property int $orders_count
  *
  * @property string $name
  * @property string $email
@@ -53,11 +51,6 @@ class User extends Authenticatable
         'roles',
     ];
 
-    /** @inheritdoc */
-    protected $withCount = [
-        'orders',
-    ];
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -67,11 +60,11 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function orders()
+    public function order()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasOne(Order::class);
     }
 
     /**

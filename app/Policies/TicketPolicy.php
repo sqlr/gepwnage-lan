@@ -59,7 +59,7 @@ class TicketPolicy
             return false;
         }
 
-        if ($ticket->sold_out || $user->orders_count > 0) {
+        if ($ticket->sold_out || $user->order) {
             return false;
         }
 

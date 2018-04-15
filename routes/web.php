@@ -85,7 +85,7 @@ Route::prefix('tickets')
 
 Route::middleware('auth')
     ->group(function () {
-        Route::get('orders', 'OrderController@index')->name('orders');
+        Route::get('orders/{order}', 'OrderController@show')->name('orders.show');
     });
 
 /*

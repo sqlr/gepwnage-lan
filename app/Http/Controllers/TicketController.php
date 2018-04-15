@@ -29,6 +29,7 @@ class TicketController extends Controller
 
         return view('tickets.index', [
             'tickets' => Ticket::all(),
+            'order' => auth()->user()->order,
         ]);
     }
 
@@ -59,7 +60,7 @@ class TicketController extends Controller
         $user = auth()->user();
 
         /** @var Order $order */
-        $order = $user->orders()->make();
+        $order = $user->order()->make();
         $order->ticket()->associate($ticket);
 
         $order->price = $ticket->price;
@@ -77,6 +78,6 @@ class TicketController extends Controller
             ],
         ]);
 
-        return redirect()->route('orders');
+        return redirect()->route('orders.show', $order);
     }
 }

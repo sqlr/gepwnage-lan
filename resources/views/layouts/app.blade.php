@@ -64,10 +64,17 @@
                 <ul class="navbar-nav ml-auto">
                     @auth
                         <li class="px-md-3">
-                            <a href="{{ route('tickets') }}"
-                               class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
-                                Tickets
-                            </a>
+                            @if(auth()->user()->order)
+                                <a href="{{ route('orders.show', auth()->user()->order) }}"
+                                   class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
+                                    My Ticket
+                                </a>
+                            @else
+                                <a href="{{ route('tickets') }}"
+                                   class="nav-link text-gepwnage-secondary {{ request()->is('tickets') ? 'active' : '' }}">
+                                    Tickets
+                                </a>
+                            @endif
                         </li>
                         <li class="nav-item dropdown">
                             <div role="button"
@@ -87,9 +94,6 @@
                                 @endif
                                 <a class="dropdown-item" href="{{ route('users.show', auth()->user()) }}">
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="{{ route('orders') }}">
-                                    My Tickets
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
