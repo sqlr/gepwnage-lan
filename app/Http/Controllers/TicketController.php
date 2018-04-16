@@ -74,7 +74,7 @@ class TicketController extends Controller
         session()->flash('alert-success', [
             'title' => 'Ticket bought.',
             'message' => [
-                'Congratulations, you have bought a ticket!',
+                'Congratulations, you have claimed a ticket!',
             ],
         ]);
 
