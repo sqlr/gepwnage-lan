@@ -136,6 +136,7 @@ class GEWISController extends Controller
             'email' => $member->email,
             'password' => Hash::make(str_random(128)),
         ]);
+        $user->save();
 
         $user->groups()->attach('gewis');
 
