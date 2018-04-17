@@ -63,7 +63,7 @@ class GEWISController extends Controller
             ->first();
         if ($user) {
             auth()->guard()->login($user);
-            return redirect()->route('orders');
+            return redirect()->route('tickets');
         }
 
         // Try to get user metadata.
