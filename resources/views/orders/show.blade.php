@@ -9,7 +9,7 @@
                     @csrf
 
                     <div class="card-body">
-                        <h3 class="card-title mb-4">{{ auth()->user()->name }}'s Ticket</h3>
+                        <h3 class="card-title mb-4">{{ $order->user->name }}'s Ticket</h3>
                         <p>{{ $ticket->description }}</p>
                     </div>
                     <div class="card-body">
