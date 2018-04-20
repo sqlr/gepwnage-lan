@@ -24,7 +24,7 @@
                             </tr>
                             <tr>
                                 <th>Price</th>
-                                <td>{{ $order->price }}</td>
+                                <td>&euro; {{ money_format('%i', $order->price) }}</td>
                             </tr>
                             <tr>
                                 <th>Payment</th>
