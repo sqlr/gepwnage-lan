@@ -55,7 +55,7 @@
             <div class="col-md-8 my-3">
                 <h2>Visitors</h2>
                 <p>We welcome visitors to come over for some drinks and some chit-chat. For the low price of <b>&euro;
-                        5,-</b> per day you can enjoy the cool beverages too!</p>
+                        5,-</b> you can enjoy the atmosphere of the LAN-party too for a maximum of 5 hours!</p>
                 <p>If you want to join us for dinner on Friday or Saturday, please let us know. You will pay for your
                     own meal, though, but we will arrange it.</p>
             </div>
