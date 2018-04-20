@@ -63,7 +63,7 @@ class GEWISController extends Controller
             ->first();
         if ($user) {
             auth()->guard()->login($user);
-            return redirect()->route('orders');
+            return redirect()->route('tickets');
         }
 
         // Try to get user metadata.
@@ -136,6 +136,7 @@ class GEWISController extends Controller
             'email' => $member->email,
             'password' => Hash::make(str_random(128)),
         ]);
+        $user->save();
 
         $user->groups()->attach('gewis');
 
