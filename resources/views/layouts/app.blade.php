@@ -60,6 +60,16 @@
                             -->
                         </div>
                     </li>
+                    @auth
+                        @if(auth()->user()->roles->contains('admin'))
+                            <li>
+                                <a href="{{ route('participants') }}"
+                                   class="nav-link {{ request()->is('participants') ? 'active' : '' }}">
+                                    Participants
+                                </a>
+                            </li>
+                        @endif
+                    @endauth
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     @auth

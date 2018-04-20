@@ -27,6 +27,7 @@ Route::prefix('information')
         Route::get('visitors', 'InformationController@visitors')->name('.visitors');
     });
 
+Route::get('participants', 'ParticipantsController@index')->middleware('auth')->name('participants');
 Route::get('poster', 'PosterController@index')->name('poster');
 
 /*
