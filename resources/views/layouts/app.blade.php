@@ -48,11 +48,11 @@
                                class="dropdown-item {{ request()->is('information/pricing') ? 'active' : '' }}">
                                 Pricing
                             </a>
-                        <!--
                             <a href="{{ route('information.schedule') }}"
                                class="dropdown-item {{ request()->is('information/schedule') ? 'active' : '' }}">
                                 Schedule
                             </a>
+                        <!--
                             <a href="{{ route('information.visitors') }}"
                                class="dropdown-item {{ request()->is('information/visitors') ? 'active' : '' }}">
                                 Visitors
