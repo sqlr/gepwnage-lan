@@ -48,12 +48,16 @@
             </div>
             <div class="col-md-8 my-3">
                 <h2>Old GEWIS-Members, Non-Students, Friends, Family, Others</h2>
-                <p>The price for non-GEWIS-members and non-students is <b>&euro; 30,-</b>.</p>
-                <p>This gives you the same benefits as studying GEWIS-members.</p>
+                <p>The price for non-GEWIS-members and non-students is <b>&euro; 30,-</b>. This gives you the same
+                    benefits as studying GEWIS-members.</p>
+                <p>Please note that GEWIS-members get precedence over others.</p>
             </div>
             <div class="col-md-8 my-3">
                 <h2>Visitors</h2>
-                <p>Please refer to the <a href="{{ route('information.visitors') }}">visitors</a> page.</p>
+                <p>We welcome visitors to come over for some drinks and some chit-chat. For the low price of <b>&euro;
+                        5,-</b> per day you can enjoy the cool beverages too!</p>
+                <p>If you want to join us for dinner on Friday or Saturday, please let us know. You will pay for your
+                    own meal, though, but we will arrange it.</p>
             </div>
         </div>
     </div>
