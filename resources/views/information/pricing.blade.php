@@ -12,11 +12,7 @@
                     Other are still welcome to sign up.
                 </p>
                 <p>
-                    The prices are subject to change, but we can assure you that they <b>won't go up</b>. Instead, we
-                    will keep looking for ways to bring the price down or to include more free stuff.
-                </p>
-                <p>
-                    Pricing information will be sent to participants via email.
+                    Payment information will be sent to participants via email.
                 </p>
             </div>
             <div class="col-md-8 my-3">
@@ -24,7 +20,7 @@
                 <p>
                     The price for studying members of study association
                     <a href="https://gewis.nl/" target="_blank" class="text-gewis">GEWIS</a>
-                    is <b>&euro; 20,-</b>.
+                    is <b>&euro; 15,-</b>.
                 </p>
                 <div class="row">
                     <div class="col-md-6 justify-content-center">
