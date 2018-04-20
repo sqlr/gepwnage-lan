@@ -26,6 +26,19 @@
                                 {{ $user->gewis_id ?? 'No.' }}
                             </td>
                         </tr>
+                        <tr>
+                            <th>Ticket</th>
+                            <td>
+                                @if($user->order)
+                                    <a href="{{ route('orders.show', $user->order) }}" class="btn btn-outline-primary">
+                                        {{ $user->order->ticket->name }}
+                                    </a>
+                                @else
+                                    No.
+                                    <a href="{{ route('tickets') }}">Buy one.</a>
+                                @endif
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                     <div class="card-footer">

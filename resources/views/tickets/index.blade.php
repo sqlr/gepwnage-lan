@@ -11,7 +11,7 @@
 
                 @auth
                     @if($order = auth()->user()->order)
-                        <div class="alert alert-info my-4">
+                        <div class="alert alert-success my-4">
                             <h4 class="alert-heading">Your Ticket</h4>
                             <p>
                                 You seem to have ordered a ticket before. Click
