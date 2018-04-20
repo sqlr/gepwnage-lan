@@ -61,7 +61,7 @@
                         </div>
                     </li>
                     @auth
-                        @if(auth()->user()->roles->contains('admin'))
+                        @if(auth()->user()->groups->contains('gewis'))
                             <li>
                                 <a href="{{ route('participants') }}"
                                    class="nav-link {{ request()->is('participants') ? 'active' : '' }}">
